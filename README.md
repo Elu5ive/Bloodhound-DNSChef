@@ -1,13 +1,13 @@
 # Bloodhound-DNSChef
 Workaround for DNS timeout, applied to HTB's Forest
 
-Fxied with dnschef:
+Fixed with dnschef:
 
 ```python
 ./dnschef.py --fakeip 10.10.10.161
 ```
 
-bloodhoundpy command:
+bloodhound-python command:
 
 ```python
 sudo /home/kali/.local/pipx/venvs/crackmapexec/bin/bloodhound-python -d htb.local -u 'svc-alfresco' -p 's3rvice' -ns 127.0.0.1 -c all --zip
@@ -60,7 +60,7 @@ then run command:
 ./dnschef.py --fakeip 10.10.10.161 --file dnschef.ini
 ```
 
-and bloodhound py it:
+and bloodhound-python it:
 
 ```python
 sudo /home/kali/.local/pipx/venvs/crackmapexec/bin/bloodhound-python -d htb.local -u 'svc-alfresco' -p 's3rvice' -ns 127.0.0.1 -c all --zip
