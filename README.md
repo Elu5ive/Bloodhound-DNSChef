@@ -3,6 +3,8 @@ Workaround for DNS timeout, applied to HTB's Forest
 
 Fixed with dnschef:
 
+Run DNSChef to get the SRV you need to add to dnschef.ini:
+
 ```python
 ./dnschef.py --fakeip 10.10.10.161
 ```
@@ -45,6 +47,7 @@ _ldap._tcp.gc._msdcs.htb.local
 *.*.*._msdcs.htb.local=0 5 5060 dc1.htb.local
 ```
 
+dnschef.ini SRV section becomes:
 ```python
 [SRV]
 ; FORMAT: priority weight port target
@@ -54,15 +57,14 @@ _ldap._tcp.gc._msdcs.htb.local
 *.*.*.htb.local=0 5 5060 dc1.htb.local
 ```
 
-then run command:
+then run dnschef again:
 
 ```python
 ./dnschef.py --fakeip 10.10.10.161 --file dnschef.ini
 ```
 
-and bloodhound-python it:
+and bloodhound-python it to pull the data (and save them to a zip):
 
 ```python
 sudo /home/kali/.local/pipx/venvs/crackmapexec/bin/bloodhound-python -d htb.local -u 'svc-alfresco' -p 's3rvice' -ns 127.0.0.1 -c all --zip
 ```
-
