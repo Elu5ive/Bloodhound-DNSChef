@@ -1,6 +1,12 @@
 # Bloodhound-DNSChef
 Workaround for DNS timeout, applied to HTB's Forest
 
+in this case, the DC sits on 10.10.10.161
+on the domain: htb.local
+and we found a service account with the credentials:
+Username: svc-alfresco
+Password: s3rvice
+
 Fixed with dnschef:
 
 Run DNSChef to get the SRV you need to add to dnschef.ini:
@@ -38,6 +44,7 @@ _ldap._tcp.gc._msdcs.htb.local
 _ldap._tcp.gc._msdcs.htb.local.localdomain
 _kerberos._tcp.dc._msdcs.htb.local
 ```
+NOTE: If you get multiple/duplicates for this output and are unsure, you can always add all of them, and DNSChef will tell you that you have duplicates that you should remove!*
 
 how to make them work on dnschef:
 
@@ -58,6 +65,8 @@ dnschef.ini SRV section becomes:
 ```
 
 then run dnschef again:
+
+*this is where DNSChef would tell you that you have duplicates that should be removed.
 
 ```python
 ./dnschef.py --fakeip 10.10.10.161 --file dnschef.ini
