@@ -2,10 +2,17 @@
 Workaround for DNS timeout, applied to HTB's Forest
 
 in this case, the DC sits on 10.10.10.161
+
+
 on the domain: htb.local
+
+
 and we found a service account with the credentials:
+
 Username: svc-alfresco
+
 Password: s3rvice
+
 
 Fixed with dnschef:
 
